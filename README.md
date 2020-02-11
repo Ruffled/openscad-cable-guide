@@ -15,3 +15,4 @@ Feel free to clone, and if you would like to fancy it up, and issue a PR request
 
 I am just learning OpenSCAD, so I will also accept any constructive criticism.
 
+I recently added two features that were sorely needed. A linear wall relief near the base of each slot to make it easier to flex the tangs when you are insterting a cable, and mounting holes located at each tang. Currently the mounting holes are fixed a 3mm, but those could be easily made parametric.
