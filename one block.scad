@@ -62,7 +62,7 @@ walls=2;
 floor=3;
 slot_height=30;
 slot_width=5;
-for(i = [0:1:10]) {
+for(i = [0:1:4]) {
 	offset = i*((length/2)+(slot_width/2));
 	slot_segment(offset, length, width, height, walls, floor, slot_height, slot_width);
 }
