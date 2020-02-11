@@ -5,7 +5,7 @@ The design is intended to be self explanatory.
 It opens with a module that generates a single cable slot cell, with paramatized dimensions.
 
 That is followed by a set of parameters to define a cell that is a 50mm cube (about two inches).
-That is followed by a generator loop that currently defaults to 10 cells.
+That is followed by a generator loop that currently defaults to 5 cells.
 
 I intend to carry this forward with additional features, but here is the start, and your are welcome to it.
 
