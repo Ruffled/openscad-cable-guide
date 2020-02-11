@@ -1,10 +1,14 @@
+// These control the smoothness of the render.
+// 1.5 is recommended for modeling as a good compromise between speed and quality.
+// Pick a smaller number for better quality if you are rendering for a print.
+// Pick a larger number to reduce quality, but also reduce time to render changes.
 $fa=1.5;
 $fs=1.5;
 
-// This creates the through piece that defines the slots in each wall, for each segment.
+// This creates the through piece that defines the slots in each wall.
 // It builds up a slot from a narrow relief rectangle for the very top, plus the slot rectangle,
 // and circles for nice rounded ends. These are extruded as a mass to be 2mm greater than the width
-// and offset on the Y axis to cleanly peirce each saide wall.
+// and offset on the Y axis to cleanly pierce each side wall.
 module slot_carve_out(offset=0, length=25, width=25, height=25, walls=2, floor=3, slot_height=15, slot_width=5)
 {
 	tslot_height=slot_height-slot_width;
@@ -23,7 +27,7 @@ module slot_carve_out(offset=0, length=25, width=25, height=25, walls=2, floor=3
 }
 
 // Wall relief was added to the full length of each segment at the base of the slot to provide a fulcrum
-// for flexing the tangs at each slot, to ease cable placement. Without these reliefs, the walls were too stiff.
+// for flexing the tangs at each slot to ease cable placement. Without these reliefs, the walls were too stiff.
 module wall_relief(offset=0, length=25, width=25, height=25, walls=2, floor=3, slot_height=15, slot_width=5)
 {
 	union()
@@ -46,9 +50,9 @@ module mounting_hole(offset=0, length=25, width=25, floor=3, screw_size)
 }
 
 // A slot segment is built of up a cube, with a slightly narrower and longer cube carved out of it.
-// We then carve out the slots, and place a mounting hole.
+// Then the slots are carved out and mounting hole is created in the floor, centered on the slot.
 // The Base cube is the first element of the difference, and the material taken away is in the union.
-module slot_segment(offset=0, length=25, width=25, height=25, walls=2, floor=3, slot_height=15, slot_width=5)
+module slot_segment(offset=0, length=25, width=25, height=25, walls=2, floor=3, slot_height=15, slot_width=5, screw=3)
 {
 	difference()
 	{
@@ -73,9 +77,10 @@ walls=2;
 floor=3;
 slot_height=30;
 slot_width=5;
+screw=3;
 
-// segments count from [a,i,b] a to b, inclusive. So the number of segment is (b-a)+1
+// segments count from a to b ([a,i,b] below) inclusive. So the number of segments is (b-a)+1
 for(i = [0:1:4]) {
 	offset = i*((length/2)+(slot_width/2));
-	slot_segment(offset, length, width, height, walls, floor, slot_height, slot_width);
+	slot_segment(offset, length, width, height, walls, floor, slot_height, slot_width, screw);
 }
