@@ -30,15 +30,12 @@ module slot_carve_out(length=25, width=25, height=25, slot_height=15, slot_width
 // for flexing the tangs at each slot to ease cable placement. Without these reliefs, the walls were too stiff.
 module wall_relief(length=25, width=25, height=25, walls=2, slot_height=15)
 {
-	union()
-	{
-		translate([length+1, walls+(walls/2), height-slot_height])
-			rotate([0,-90,0])
-				cylinder(h=length+2, r=walls);
-		translate([length+1, width-(walls+walls/2), height-slot_height])
-			rotate([0,-90,0])
-				cylinder(h=length+2, r=walls);
-	}
+    translate([length+1, walls+(walls/2), height-slot_height])
+        rotate([0,-90,0])
+            cylinder(h=length+2, r=walls);
+    translate([length+1, width-(walls+walls/2), height-slot_height])
+        rotate([0,-90,0])
+            cylinder(h=length+2, r=walls);
 }
 
 // One mounting screw hole at each slot. I don't think anyone will print a single segment to really mount,
