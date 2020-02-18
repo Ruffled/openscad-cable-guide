@@ -1,7 +1,7 @@
 # openscad-cable-guide
 This is a cable guide developed in OpenSCAD. It is a parametric model. It is a work in progress.
 
-One of the things I have found, and I am trying to address it, is that printing in PLA is very fragile when you flex parts across layers. I am working to mitigate this. If you orient the guide vertically in your slicer, the tangs of the guide will be more durable since you are not flexing them across the layers. I am looking at thinning the walls be stretching the relief the full height of the slot. If you print in ABS this issue is less of a problem, but I would like to enable PLA based guides.
+One of the things I have found, and I am trying to address it, is that printing in PLA is very fragile when you flex parts across layers. I am working to mitigate this. If you orient the guide vertically in your slicer, the tangs of the guide will be more durable since you are not flexing them across the layers. I am looking at thinning the walls by extending the sidewall the relief the full height of the slot on each side. If you print in ABS this issue is less of a problem, but I would like to enable PLA based guides.
 
 The design is intended to be self explanatory.
 It opens with a module that generates a single cable slot cell, with paramatized dimensions.
